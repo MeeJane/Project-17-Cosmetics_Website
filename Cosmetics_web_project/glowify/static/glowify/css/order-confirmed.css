@@ -1,0 +1,372 @@
+.confirm {
+    background: #F3F3F3;
+    padding: 40px;
+    font-family: Inter;
+    color: #2E2E2E;
+}
+
+.confirm-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.thank {
+    font-family: Poppins;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.order-box {
+    background: linear-gradient(90deg, #FF6FAE, #FF4D94, #F72585);
+    color: white;
+    padding: 22px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.order-box h3 {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.order-box p {
+    font-size: 13px;
+    opacity: .9;
+}
+
+.billing h3 {
+    font-family: Poppins;
+    margin-bottom: 10px;
+}
+
+.billing p {
+    margin: 4px 0;
+}
+
+.delivery {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 26px 0;
+}
+
+.delivery img {
+    width: 80px;
+}
+
+.delivery h4 {
+    font-family: Poppins;
+}
+
+.delivery span {
+    font-size: 13px;
+    color: #9A9AA5;
+}
+
+.track-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #F72585;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: Poppins;
+}
+
+.track-btn:hover {
+    background: #B7104D;
+}
+
+/* RIGHT SUMMARY */
+
+.summary {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.summary h3 {
+    font-family: Poppins;
+    margin-bottom: 16px;
+}
+
+.sum-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.sum-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.sum-name {
+    font-weight: 600;
+}
+
+.sum-item span {
+    display: block;
+    font-size: 13px;
+    color: #9A9AA5;
+}
+
+.sum-row,
+.sum-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.sum-total {
+    font-weight: 700;
+}
+
+/* ================= CONFIRMATION PAGE - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    .confirm {
+        padding: 30px 20px;
+    }
+
+    .confirm-container {
+        gap: 30px;
+    }
+
+    .thank {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .order-box {
+        padding: 18px;
+    }
+
+    .order-box h3 {
+        font-size: 16px;
+    }
+
+    .order-box p {
+        font-size: 12px;
+    }
+
+    .delivery {
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .delivery img {
+        width: 70px;
+    }
+
+    .delivery h4 {
+        font-size: 16px;
+    }
+
+    .track-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    /* Summary */
+    .summary {
+        padding: 18px;
+    }
+
+    .summary h3 {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .sum-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 10px;
+    }
+
+    .sum-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sum-name {
+        font-size: 14px;
+    }
+
+    .sum-row {
+        font-size: 14px;
+    }
+
+    .sum-total {
+        font-size: 16px;
+    }
+}
+
+/* ================= CONFIRMATION PAGE - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    .confirm {
+        padding: 20px 12px;
+    }
+
+    .confirm-container {
+        grid-template-columns: 1fr;
+        /* Stack layout */
+        gap: 25px;
+    }
+
+    .thank {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Order Box */
+    .order-box {
+        padding: 16px;
+        text-align: center;
+    }
+
+    .order-box h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .order-box p {
+        font-size: 12px;
+    }
+
+    /* Billing */
+    .billing {
+        text-align: center;
+    }
+
+    .billing h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .billing p {
+        font-size: 14px;
+        margin: 3px 0;
+    }
+
+    /* Delivery */
+    .delivery {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        margin: 20px 0;
+        padding: 15px;
+        background: white;
+        border-radius: 14px;
+    }
+
+    .delivery img {
+        width: 80px;
+    }
+
+    .delivery h4 {
+        font-size: 16px;
+    }
+
+    .delivery span {
+        font-size: 13px;
+        display: block;
+        margin-top: 4px;
+    }
+
+    /* Track Button */
+    .track-btn {
+        display: block;
+        text-align: center;
+        padding: 14px;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .track-btn:hover {
+        background: #F72585;
+        /* Remove hover color change on mobile */
+    }
+
+    /* Summary Section */
+    .summary {
+        padding: 16px;
+        margin-top: 5px;
+    }
+
+    .summary h3 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .sum-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .sum-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sum-name {
+        font-size: 14px;
+    }
+
+    .sum-item span {
+        font-size: 12px;
+    }
+
+    .sum-row {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    .sum-total {
+        font-size: 18px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 2px dashed #F3D6E2;
+    }
+}
+
+/* ================= SMALL MOBILE (max-width: 380px) ================= */
+@media screen and (max-width: 380px) {
+
+    .thank {
+        font-size: 20px;
+    }
+
+    .delivery img {
+        width: 70px;
+    }
+
+    .delivery h4 {
+        font-size: 15px;
+    }
+
+    .sum-item {
+        grid-template-columns: 40px 1fr auto;
+    }
+
+    .sum-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .track-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,146 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+
+{% block title %}Track Order | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/track-order.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+
+{% endblock %}
+
+{% block content %}
+
+<section class="track">
+
+    <div class="track-container">
+
+        {% for order in orders %}
+
+        <div class="track-grid">
+
+            <div class="track-left">
+
+                <div class="product-banner">
+                    {{ order.product.name }}
+                </div>
+
+                <div class="steps">
+
+                    <div class="step {% if order.status >= 1 %}done{% endif %}">
+                        <div class="circle">✓</div>
+                        <p>Ordered</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="step {% if order.status >= 2 %}done{% endif %}">
+                        <div class="circle">✓</div>
+                        <p>Processing</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="step {% if order.status >= 3 %}done{% endif %}">
+                        <div class="circle">✓</div>
+                        <p>Shipped</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="step {% if order.status >= 4 %}done{% endif %}">
+                        <div class="circle">✓</div>
+                        <p>Out for Delivery</p>
+                    </div>
+
+                </div>
+
+                <p class="track-msg">
+                    Your order is currently out for delivery and will reach you by 6:00 PM
+                </p>
+
+                <div class="map-box">
+
+                    <div id="map{{ forloop.counter }}" class="map"></div>
+
+                    <img src="{% static 'glowify/images/shipping.gif' %}" class="map-gif">
+
+                    <button class="map-btn">📍 View Live Map</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="track-right">
+
+                <div class="delivery-card">
+
+                    <h3>Delivery Details</h3>
+
+                    <p class="label">Order Number</p>
+                    <p>{{ order.order_no }}</p>
+
+                    <h4>Shipping Address</h4>
+
+                    <p>
+                        123 Luxury lane,<br>
+                        Tenkasi,<br>
+                        627859
+                    </p>
+
+                    <h4>Shipping Method</h4>
+
+                    <p>Standard Delivery (3-5 Business days)</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+{% endblock %}
+
+
+
+
+
+{% block extra_js %}
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const maps = document.querySelectorAll(".map");
+
+        maps.forEach((mapDiv) => {
+
+            let map = L.map(mapDiv.id).setView([8.7139, 77.7567], 13);
+
+            L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+            L.marker([8.7139, 77.7567]).addTo(map);
+            map.whenReady(function () {
+                map.invalidateSize();
+            });
+
+        });
+
+    });
+
+</script>
+
+{% endblock %}

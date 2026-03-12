@@ -1,0 +1,135 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}Offers | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/offers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="offers-page">
+
+    <!-- ================= HERO BANNER ================= -->
+    <section class="offers-hero">
+
+        <div class="hero-slider">
+
+            {% for hero in heroes %}
+            <div class="hero-slide">
+                <img src="{{ hero.image.url }}" alt="{{ hero.title }}">
+
+                <div class="hero-overlay">
+                    <h1>{{ hero.title }}</h1>
+                    <p>{{ hero.subtitle }}</p>
+
+                    {% if hero.button_text %}
+                    <a href="{{ hero.button_link }}" class="hero-btn">
+                        {{ hero.button_text }}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- Navigation -->
+        <button class="hero-prev" onclick="prevSlide()">❮</button>
+        <button class="hero-next" onclick="nextSlide()">❯</button>
+
+    </section>
+
+
+    <!-- ================= BOGO SECTION ================= -->
+    <section class="offer-section">
+        <h2 class="section-title">Buy 1 Get 1 Free</h2>
+
+        <div class="offer-grid">
+            {% for offer in bogo_offers %}
+            <div class="offer-card">
+                <div class="offer-img">
+                    <img src="{{ offer.image.url }}" alt="{{ offer.title }}">
+                </div>
+
+                <div class="offer-content">
+                    <h3 class="offer-title">{{ offer.title }}</h3>
+
+                    <p class="offer-desc">
+                        {{ offer.description }}
+                    </p>
+
+                    <div class="offer-price">
+                        <span class="offer-new">₹{{ offer.offer_price }}</span>
+                        <span class="offer-old">₹{{ offer.original_price }}</span>
+                    </div>
+
+                    <button class="offer-btn">Add to Cart</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <!-- ================= FEATURED OFFER ================= -->
+    <section class="exclusive-kit">
+
+        <div class="kit-container">
+
+            <!-- Image -->
+            <div class="kit-image">
+                <img src="{{ featured.image.url }}" alt="{{ featured.title }}">
+            </div>
+
+            <!-- Content -->
+            <div class="kit-content">
+
+                <!-- Title -->
+                <h2 class="kit-title">
+                    {{ featured.title }}
+                </h2>
+
+                <!-- Description -->
+                <p class="kit-desc">
+                    {{ featured.description }}
+                </p>
+
+                <!-- Price -->
+                <div class="kit-price">
+                    <span class="price-new">₹{{ featured.offer_price }}</span>
+                    <span class="price-old">₹{{ featured.original_price }}</span>
+                    <span class="price-save">Save 35%</span>
+                </div>
+
+                <!-- Button -->
+                <a href="#" class="kit-btn">
+                    <span>Claim This Offer</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= INNER CIRCLE ================= -->
+    <section class="inner-circle">
+
+        <div class="inner-content">
+            <h3>Join The Inner Circle</h3>
+            <p>Sign up to receive early access to new launches, exclusive offers and skincare tips.</p>
+
+            <div class="inner-form">
+                <input type="email" placeholder="Enter You Email">
+                <button>Register</button>
+            </div>
+        </div>
+
+        <div class="glow-layer"></div>
+
+    </section>
+
+</section>
+
+{% endblock %}

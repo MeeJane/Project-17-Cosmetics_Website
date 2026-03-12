@@ -1,0 +1,805 @@
+/* ================= PAGE ================= */
+.offers-page {
+    padding: 40px;
+    background: #FFFFFF;
+
+}
+
+/* ================= HERO ================= */
+/* HERO */
+.offers-hero {
+    position: relative;
+    overflow: hidden;
+    height: 420px;
+    border-radius: 24px;
+    margin-bottom: 30px;
+}
+
+/* Slider Track */
+.hero-slider {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+/* Each Slide */
+.hero-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Overlay */
+.hero-overlay {
+    position: absolute;
+    left: 60px;
+    bottom: 60px;
+    color: #fff;
+}
+
+/* Buttons */
+.hero-prev,
+.hero-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffffcc;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hero-prev {
+    left: 20px;
+}
+
+.hero-next {
+    right: 20px;
+}
+
+/* ================= SECTION ================= */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+/* ================= OFFER GRID ================= */
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+    margin-bottom: 50px;
+}
+
+/* ================= OFFER CARD ================= */
+.offer-card {
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.offer-img {
+    width: 100%;
+    height: 300px;
+    background: #F3F3F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.offer-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+
+
+.offer-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Content */
+.offer-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Title */
+.offer-title {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #2E2E2E;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.offer-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #6F6F6F;
+    margin-bottom: 14px;
+}
+
+/* Price Row */
+.offer-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: auto;
+}
+
+.offer-new {
+    color: #F72585;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.offer-old {
+    color: #9A9AA5;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+/* Button */
+.offer-btn {
+    width: 95%;
+    height: 45px;
+    border-radius: 10px;
+
+    border: 0.8px solid #B7104D;
+    color: #2E2E2E;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+/* Base Button (your existing style kept) */
+/* .offer-btn {
+    width: 323px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+
+    background: linear-gradient(90deg, #FF6FAE, #FF4D94, #F72585);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+} */
+
+/* Light Pink Hover Layer */
+.offer-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(90deg, #FFD6E7, #FFB3D1, #FF8FBC);
+    transform: translateX(-100%);
+    /* start hidden left */
+    transition: transform .45s ease;
+}
+
+/* Hover → slide in */
+.offer-btn:hover::before {
+    transform: translateX(0);
+}
+
+/* Lift effect */
+.offer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(247, 37, 133, .35);
+}
+
+/* 👇 Click Press Effect */
+.offer-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+}
+
+/* ================= FEATURED ================= */
+/* ================= EXCLUSIVE KIT ================= */
+.exclusive-kit {
+    max-width: 1290px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.kit-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Image */
+.kit-image {
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.kit-image img {
+
+    width: 100%;
+    height: 356px;
+    display: block;
+    border-radius: 22px;
+}
+
+/* ================= TEXT ================= */
+
+/* Title */
+.kit-title {
+    color: #2E2E2E;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 1%;
+    margin-bottom: 24px;
+}
+
+/* Description */
+.kit-desc {
+    color: #555;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 1%;
+    margin-bottom: 18px;
+}
+
+/* ================= PRICE ================= */
+.kit-price {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.price-new {
+    color: #F72585;
+    font-weight: 600;
+}
+
+.price-old {
+    color: #BDBDBD;
+    text-decoration: line-through;
+}
+
+.price-save {
+    color: #2E2E2E;
+}
+
+/* ================= BUTTON ================= */
+.kit-btn {
+    position: relative;
+    width: 336px;
+    height: 45px;
+    border-radius: 12px;
+    background: #E91E63;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+}
+
+/* Button Text */
+.kit-btn span {
+    position: relative;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+/* Hover Fill Layer */
+.kit-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #800020;
+    /* maroon */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .45s ease;
+    z-index: 1;
+}
+
+/* Hover Animation */
+.kit-btn:hover::before {
+    transform: scaleX(1);
+}
+
+/* ================= INNER CIRCLE ================= */
+.inner-circle {
+    max-width: 1235px;
+    width: 100%;
+    height: 197px;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+    border-radius: 12px;
+    padding: 40px;
+    color: #fff;
+    overflow: hidden;
+    background: linear-gradient(91.4deg, #FF6FAE 29.97%, #FF4D94 47.69%, #F72585 70.03%);
+
+}
+
+
+.inner-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.inner-content h3 {
+    font-family: "Poppins";
+    font-weight: 600;
+    color: #FFFFFF;
+    font-size: 24px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.inner-content p {
+    font-family: "Inter";
+    font-weight: 400;
+
+    font-size: 16px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.inner-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.inner-form input {
+    width: 320px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+}
+
+.inner-form input::placeholder {
+    color: #9A9AA5;
+
+}
+
+.inner-form button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-family: "Poppins";
+
+    font-style: Medium;
+    font-size: 16px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+/* ================= GLOW ANIMATION ================= */
+/* ================= INNER CIRCLE SECTION ================= */
+.inner-circle {
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 24px;
+
+    /* Base Pink Gradient */
+    background: linear-gradient(135deg, #FF6FAE, #FF4D94, #F72585);
+}
+
+/* ================= ORGANIC PARTICLES ================= */
+.inner-circle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 1;
+
+    /* Multiple organic blobs layered */
+    background-image:
+        radial-gradient(ellipse at 12% 18%, #00000055 2px, transparent 3px),
+        radial-gradient(ellipse at 78% 32%, #00000040 1.8px, transparent 3px),
+        radial-gradient(ellipse at 44% 76%, #00000060 2.2px, transparent 3px),
+        radial-gradient(ellipse at 66% 58%, #00000035 1.6px, transparent 3px),
+        radial-gradient(ellipse at 24% 62%, #00000050 2px, transparent 3px),
+        radial-gradient(ellipse at 90% 82%, #00000045 1.8px, transparent 3px),
+        radial-gradient(ellipse at 8% 88%, #00000050 2px, transparent 3px),
+        radial-gradient(ellipse at 52% 14%, #00000040 1.6px, transparent 3px),
+        radial-gradient(ellipse at 36% 40%, #00000055 2.4px, transparent 4px),
+        radial-gradient(ellipse at 60% 90%, #00000035 1.6px, transparent 3px),
+
+        /* Dense micro layer */
+        radial-gradient(circle, #00000030 1px, transparent 1.8px);
+
+    background-size:
+        100% 100%,
+        100% 800%,
+        100% 100%,
+        100% 100%,
+        400% 100%,
+        100% 100%,
+        100% 900%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        7px 7px;
+
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        repeat;
+}
+
+/* ================= GLOW BREATHING ================= */
+.glow-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    /* soft linear light band */
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 255, 255, .18) 35%,
+            rgba(255, 255, 255, .35) 50%,
+            rgba(255, 255, 255, .18) 65%,
+            transparent 100%);
+
+    background-size: 200% 200%;
+
+    animation:
+        sweepLight 6s linear infinite,
+        breatheLight 4s ease-in-out infinite;
+}
+
+
+
+.inner-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+}
+
+/* ================= ANIMATION ================= */
+/* light moves diagonally */
+@keyframes sweepLight {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* section brightness breathing */
+@keyframes breatheLight {
+    0% {
+        filter: brightness(0.8);
+        opacity: .7;
+    }
+
+    50% {
+        filter: brightness(1.25);
+        opacity: 1;
+    }
+
+    100% {
+        filter: brightness(0.1);
+        opacity: 0.7;
+    }
+}
+
+/* ================= LARGE DESKTOP (≥1200px) ================= */
+
+@media screen and (min-width:1200px) {
+
+    .offer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 34px;
+    }
+
+    .hero-slide img {
+        height: 500px;
+    }
+
+    .kit-container {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+    }
+
+}
+
+
+/* ================= LAPTOP (1024px – 1199px) ================= */
+
+@media screen and (max-width:1199px) {
+
+    .offers-page {
+        padding: 30px 20px;
+    }
+
+    /* HERO */
+    .hero-slide img {
+        height: 420px;
+    }
+
+    /* GRID */
+    .offer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    /* CARD */
+    .offer-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .offer-img {
+        height: 240px;
+    }
+
+    /* KIT */
+    .kit-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .kit-image img {
+        height: 300px;
+    }
+
+}
+
+
+/* ================= TABLET (768px – 1023px) ================= */
+
+@media screen and (max-width:1023px) {
+
+    .offers-page {
+        padding: 25px 18px;
+    }
+
+    /* HERO */
+    .offers-hero {
+        height: 320px;
+    }
+
+    .hero-slide img {
+        height: 320px;
+    }
+
+    /* GRID */
+    .offer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    /* CARD */
+    .offer-img {
+        height: 220px;
+    }
+
+    /* KIT */
+    .kit-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .kit-image img {
+        height: 260px;
+    }
+
+    .kit-content {
+        text-align: center;
+    }
+
+    .kit-btn {
+        margin: auto;
+    }
+
+    /* INNER CIRCLE */
+    .inner-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inner-form input {
+        width: 280px;
+    }
+
+}
+
+
+/* ================= MOBILE (480px – 767px) ================= */
+
+@media screen and (max-width:767px) {
+
+    .offers-page {
+        padding: 20px 14px;
+    }
+
+    /* HERO */
+    .offers-hero {
+        height: 220px;
+    }
+
+    .hero-slide img {
+        height: 220px;
+    }
+
+    /* GRID */
+    .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* CARD */
+    .offer-card {
+        max-width: 100%;
+    }
+
+    .offer-img {
+        height: 200px;
+    }
+
+    /* TEXT */
+    .offer-title {
+        font-size: 18px;
+    }
+
+    .offer-desc {
+        font-size: 14px;
+    }
+
+    /* KIT */
+    .kit-image img {
+        height: 220px;
+    }
+
+    .kit-title {
+        font-size: 22px;
+    }
+
+    /* INNER CIRCLE */
+    .inner-circle {
+        padding: 30px 18px;
+    }
+
+    .inner-content h3 {
+        font-size: 20px;
+    }
+
+    .inner-content p {
+        font-size: 14px;
+    }
+
+    .inner-form input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .inner-form button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+}
+
+
+/* ================= SMALL MOBILE (<480px) ================= */
+
+@media screen and (max-width:480px) {
+
+    .offers-page {
+        padding: 18px 10px;
+    }
+
+    /* HERO */
+    .offers-hero {
+        height: 180px;
+    }
+
+    .hero-slide img {
+        height: 180px;
+    }
+
+    /* CARD */
+    .offer-img {
+        height: 170px;
+    }
+
+    .offer-title {
+        font-size: 16px;
+    }
+
+    .offer-desc {
+        font-size: 13px;
+    }
+
+    .offer-btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* KIT */
+    .kit-image img {
+        height: 190px;
+    }
+
+    .kit-title {
+        font-size: 20px;
+    }
+
+    .kit-desc {
+        font-size: 14px;
+    }
+
+    /* INNER CIRCLE */
+    .inner-content h3 {
+        font-size: 18px;
+    }
+
+    .inner-content p {
+        font-size: 13px;
+    }
+
+}

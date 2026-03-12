@@ -1,0 +1,585 @@
+/* ================= HERO ================= */
+.contact-hero {
+    height: 260px;
+    background: url("../images/contact-hero.png") right center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+/* ================= HERO ================= */
+/* .contact-hero {
+    background: linear-gradient(95deg, #FF6FAE, #FF4D94, #F72585);
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+} */
+
+.contact-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+
+}
+
+.hero-content {
+    margin-left: 170px;
+    text-align: center;
+}
+
+.contact-hero p {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    opacity: .95;
+    max-width: 620px;
+    color: #2E2E2E;
+    font-weight: 400;
+
+
+}
+
+/* ================= LAYOUT ================= */
+.contact-wrap {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* Cards */
+.contact-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    border: 1px solid #F3D6E2;
+}
+
+.form-card {
+    flex: 1.2;
+}
+
+.right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-card h3 {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #2E2E2E;
+}
+
+/* ================= FORM ================= */
+.contact-form .row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.field.full {
+    flex: 1 1 100%;
+}
+
+.field label {
+    font-size: 16px;
+    margin-bottom: 6px;
+    font-family: 'Inter';
+    font-weight: 500;
+
+}
+
+.field input,
+.field textarea {
+    border: 1px solid #E8CFD4;
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Inter';
+    outline: none;
+}
+
+.field textarea {
+    height: 120px;
+    resize: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+
+
+}
+
+input:focus {
+    border-color: #F72585;
+    box-shadow: 0 0 0 3px rgba(247, 37, 133, .15);
+    transition: all .2s ease;
+}
+
+/* Send Button */
+.send-btn {
+    width: 30%;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Poppins';
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(90deg, #E91E63, #E91E63, #F72585);
+    box-shadow: 0 10px 22px rgba(247, 37, 133, .35);
+    transition: all .25s ease;
+    overflow: hidden;
+}
+
+/* Light Pink Hover Layer */
+.send-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(90deg, #800020, #800020, #800020);
+    transform: translateX(-100%);
+    /* start hidden left */
+    transition: transform .45s ease;
+}
+
+/* Hover → slide in */
+.send-btn:hover::before {
+    transform: translateX(0);
+}
+
+/* Lift effect */
+.send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(247, 37, 133, .35);
+}
+
+/* 👇 Click Press Effect */
+.send-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+}
+
+/* ================= INFO ================= */
+.info-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #FFE3EC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box img {
+    width: 60px;
+    height: 60px;
+}
+
+.info-row h4 {
+    font-family: 'Inter';
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.info-row p {
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+
+}
+
+/* ================= MINI CARDS ================= */
+.mini-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 1px solid #F3D6E2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.mini-card:hover {
+    background: #FFE3EC;
+    transform: translateY(-2px);
+}
+
+.mini-card span {
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.arrow {
+    font-size: 22px;
+    color: #F72585;
+}
+
+/* ================= FAQ ================= */
+.faq-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.faq-item {
+    border: 1px solid #F3D6E2;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.faq-q {
+    padding: 16px 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-a {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .35s ease;
+    font-family: 'Inter';
+    color: #555;
+}
+
+.faq-item.open .faq-a {
+    padding: 16px 20px;
+    max-height: 300px;
+}
+
+/* ================= CONTACT PAGE - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    /* Hero */
+    .contact-hero {
+        height: 220px;
+    }
+
+    .hero-content {
+        margin-left: 80px;
+    }
+
+    .contact-hero h1 {
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+
+    .contact-hero p {
+        font-size: 18px;
+        max-width: 500px;
+    }
+
+    /* Layout */
+    .contact-wrap {
+        gap: 30px;
+        margin: 40px auto;
+    }
+
+    /* Cards */
+    .contact-card {
+        padding: 20px;
+    }
+
+    .contact-card h3 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    /* Form */
+    .contact-form .row {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .field label {
+        font-size: 14px;
+    }
+
+    .field input,
+    .field textarea {
+        padding: 10px;
+    }
+
+    .send-btn {
+        width: 40%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Info */
+    .icon-box {
+        width: 46px;
+        height: 46px;
+    }
+
+    .icon-box img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .info-row h4 {
+        font-size: 15px;
+    }
+
+    .info-row p {
+        font-size: 13px;
+    }
+
+    /* Mini cards */
+    .mini-card {
+        padding: 16px;
+    }
+
+    /* FAQ */
+    .faq-section {
+        margin: 60px auto;
+    }
+
+    .faq-section h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+}
+
+/* ================= CONTACT PAGE - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    /* Hero */
+    .contact-hero {
+        height: 180px;
+        background-position: 70% center;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .contact-hero h1 {
+        font-size: 26px;
+        margin-bottom: 6px;
+    }
+
+    .contact-hero p {
+        font-size: 16px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Layout - switches to column */
+    .contact-wrap {
+        flex-direction: column;
+        gap: 25px;
+        margin: 30px auto;
+    }
+
+    /* Form card */
+    .form-card {
+        order: 1;
+    }
+
+    .right-col {
+        order: 2;
+        gap: 15px;
+    }
+
+    .contact-card {
+        padding: 18px;
+    }
+
+    .contact-card h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    /* Form rows become column */
+    .contact-form .row {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .field label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .field input,
+    .field textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+        font-size: 13px;
+    }
+
+    /* Send button - full width on mobile */
+    .send-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+        margin-top: 5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .send-btn::before {
+        display: none;
+        /* Remove animation on mobile */
+    }
+
+    .send-btn:hover {
+        transform: none;
+    }
+
+    .send-btn:active {
+        transform: scale(0.98);
+    }
+
+    /* Info section */
+    .info-row {
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .icon-box {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    .icon-box img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .info-row h4 {
+        font-size: 15px;
+        margin-bottom: 2px;
+    }
+
+    .info-row p {
+        font-size: 13px;
+    }
+
+    /* Mini cards */
+    .mini-card {
+        padding: 15px;
+    }
+
+    .mini-card:hover {
+        transform: none;
+    }
+
+    .mini-card span {
+        font-size: 14px;
+    }
+
+    .arrow {
+        font-size: 20px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    .faq-section h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .faq-q {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .faq-a {
+        font-size: 13px;
+    }
+
+    .faq-item.open .faq-a {
+        padding: 14px 16px;
+    }
+}
+
+/* ================= SMALL MOBILE (max-width: 380px) ================= */
+@media screen and (max-width: 380px) {
+
+    .contact-hero h1 {
+        font-size: 22px;
+    }
+
+    .contact-hero p {
+        font-size: 14px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-row h4 {
+        font-size: 14px;
+    }
+
+    .info-row p {
+        font-size: 12px;
+    }
+
+    .mini-card {
+        padding: 12px;
+    }
+
+    .faq-q {
+        font-size: 13px;
+        padding: 12px 14px;
+    }
+}

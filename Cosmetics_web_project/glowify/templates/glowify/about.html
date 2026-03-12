@@ -1,0 +1,163 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/about.css' %}">
+{% endblock %}
+{% block title %}About | Glowify{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="about-hero">
+    <img src="{% static 'glowify/images/about-hero.png' %}" class="about-hero-img">
+
+    <div class="about-hero-overlay">
+        <h1>The Art of Radiant Skin</h1>
+        <p>
+            The legacy of timeless beauty and scientific precision,
+            crafted for the modern connoisseur
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= STORY ================= -->
+<section class="about-story">
+    <div class="about-story-wrap">
+
+        <div class="about-story-text">
+            <h2>Our story</h2>
+            <p>
+                At Glowify, beauty is more than makeup — it's confidence,
+                self-expression, and self-love.<br>
+
+
+                We create high-quality, skin-friendly cosmetics designed to
+                enhance your natural glow. Every product is crafted with care,
+                combining modern beauty trends with premium ingredients to
+                deliver long-lasting results.
+            </p>
+
+            <h2>Our Mission</h2>
+            <p>
+                To make beauty accessible, empowering, and effortless for everyone.
+                From bold lip shades to everyday essentials, our collections are
+                designed to suit every skin tone and style. We believe that beauty
+                should feel comfortable, look stunning, and inspire confidence.
+            </p>
+        </div>
+
+        <div class="about-story-image">
+            <img src="{% static 'glowify/images/about-girls.png' %}">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= CORE VALUES ================= -->
+<section class="about-values">
+    <h2 class="about-section-title">Our Core Values</h2>
+
+    <div class="about-values-grid">
+
+        <div class="about-value-card">
+            <img src="{% static 'glowify/images/premium.gif' %}" class="about-value-icon" style="margin-top: -30px;">
+            <h4>Premium Quality</h4>
+            <p>
+                We create high-performance beauty products with carefully
+                selected, skin-loving ingredients.
+            </p>
+        </div>
+
+        <div class="about-value-card">
+            <img src="{% static 'glowify/images/confidence.gif' %}" class="about-value-icon"
+                style=" margin-top: 10px;margin-bottom: 0px;">
+            <h4>Empowered Confidence</h4>
+            <p>
+                Our mission is to inspire confidence and celebrate individuality
+                through every shade.
+            </p>
+        </div>
+
+        <div class="about-value-card">
+            <img src="{% static 'glowify/images/ethical.gif' %}" class="about-value-icon"
+                style="width: 58px;height: 66px; margin-top: 50px;margin-bottom: 20px;">
+            <h4 style="margin-bottom: 20px;">Ethical Beauty</h4>
+            <p>
+                Cruelty-free, responsible, and committed to sustainable practices.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FOUNDER ================= -->
+<section class="about-founder">
+    <div class="about-founder-wrap">
+
+        <div class="about-founder-image">
+            <img src="{% static 'glowify/images/founder.avif' %}">
+        </div>
+
+        <div class="about-founder-text">
+            <h2>Meet the Founder</h2>
+            <p>
+                Behind every shade, there is a story.
+            </p>
+            <p>
+                Elena started this brand with a simple vision —
+                to create beauty products that combine luxury,
+                performance, and confidence.
+            </p>
+            <p>
+                With a passion for skincare and makeup innovation,
+                she believed that every woman deserves products that
+                enhance natural beauty without compromise.
+            </p>
+            <p>
+                What began as a dream soon became a mission:
+                To design high-quality, cruelty-free cosmetics that
+                empower individuals to express themselves fearlessly.
+            </p>
+            <p>
+                Her dedication to excellence, detail, and modern beauty
+                trends continues to shape every product we create.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= COMMITMENT ================= -->
+<section class="about-commitment">
+    <div class="about-commitment-box">
+        <h2>Our Unwavering Commitment</h2>
+        <p>
+            At our core, we are dedicated to delivering beauty without compromise.
+        </p>
+        <p>
+            We are committed to creating high-quality, skin-friendly products
+            that combine innovation, safety, and performance.
+        </p>
+        <p>
+            Every formula is thoughtfully developed to ensure comfort,
+            long-lasting wear, and visible results.
+        </p>
+
+        <button class="about-btn-primary">
+            View sustainability Report
+        </button>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+<script src="{% static 'glowify/js/about.js' %}"></script>
+{% endblock %}

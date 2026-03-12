@@ -1,0 +1,637 @@
+.checkout {
+    background: #F3F3F3;
+    padding: 40px;
+    font-family: Inter, sans-serif;
+    color: #2E2E2E;
+}
+
+.co-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.co-title {
+    font-family: Poppins, sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.co-block h3 {
+    font-family: Poppins;
+    font-size: 18px;
+    margin: 20px 0 8px;
+}
+
+.co-sub {
+    color: #9A9AA5;
+    font-size: 14px;
+    margin-bottom: 16px
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px
+}
+
+.field label {
+    font-size: 14px;
+    margin-bottom: 6px
+}
+
+.field input {
+    height: 42px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0 12px;
+    background: #fff;
+}
+
+.co-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px
+}
+
+.co-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px
+}
+
+.mt {
+    margin-top: 24px
+}
+
+/* SHIPPING OPTION CARD */
+.ship-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* price on right */
+    gap: 16px;
+
+    padding: 18px 22px;
+    border-radius: 12px;
+    border: 1px solid #F3D6E2;
+    background: #fff;
+
+    cursor: pointer;
+    margin-bottom: 14px;
+}
+
+/* LEFT SIDE (radio + text block) */
+.ship-option>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* ✅ LEFT ALIGN TEXT */
+    text-align: left;
+    /* ✅ LEFT ALIGN TEXT */
+    gap: 14px;
+}
+
+.ship-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title */
+.ship-option strong {
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #2E2E2E;
+}
+
+/* Sub text */
+.ship-option span {
+    font-family: "Inter";
+    font-size: 14px;
+    color: #9A9AA5;
+}
+
+/* Price */
+.ship-option b {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2E2E2E;
+}
+
+/* Active state (pink highlight like design) */
+.ship-option.active {
+    background: #FFE3EC;
+    border-color: #F3D6E2;
+}
+
+.ship-option input {
+    accent-color: #F72585
+}
+
+.ship-option span {
+    display: block;
+    color: #9A9AA5;
+    font-size: 13px;
+
+}
+
+/* Tabs */
+/* .payment-tabs {
+    display: flex;
+    gap: 18px;
+    margin: 18px 0 26px;
+}
+
+.pay-tab {
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    font-family: Poppins;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} */
+
+.pay-tab.active {
+    background: #FFE3EC;
+    border-color: #F3D6E2;
+    box-shadow: 0 6px 18px rgba(247, 37, 133, .15);
+}
+
+.payment-tabs {
+    display: flex;
+    gap: 18px;
+    margin: 16px 0 24px;
+}
+
+.pay-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    font-family: "Poppins";
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.pay-tab img {
+    width: 22px;
+    height: 22px;
+}
+
+
+
+/* Tab content */
+.pay-content {
+    display: none;
+}
+
+.pay-content.active {
+    display: block;
+}
+
+/* UPI options */
+.upi-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.upi-option img {
+    width: 26px;
+}
+
+.upi-option.active {
+    background: #FFE3EC;
+    border-color: #F3D6E2;
+}
+
+.upi-option input {
+    display: none;
+}
+
+.radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #F72585;
+    position: relative;
+}
+
+.upi-option input:checked+.radio::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: #F72585;
+}
+
+/* .place-btn {
+    margin-top: 20px;
+    height: 46px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "Poppins";
+    background: linear-gradient(90deg, #FF6FAE, #FF4D94, #F72585);
+    cursor: pointer;
+} */
+.place-btn {
+    position: relative;
+    overflow: hidden;
+    background: #E91E63;
+    color: #fff;
+    border: none;
+    padding: 14px 38px;
+    border-radius: 12px;
+    font-family: Poppins;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Maroon slide layer */
+.place-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #B7104D, #800020);
+    transform: translateX(-100%);
+    transition: transform .45s ease;
+    z-index: -1;
+}
+
+.place-btn:hover::before {
+    transform: translateX(0);
+}
+
+.place-btn:hover {
+    box-shadow: 0 10px 22px rgba(183, 16, 77, .35);
+}
+
+/* RIGHT */
+.summary {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.summary h3 {
+    font-family: Poppins;
+    margin-bottom: 16px
+}
+
+.sum-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sum-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover
+}
+
+.sum-name {
+    font-weight: 600
+}
+
+.sum-item span {
+    display: block;
+    color: #9A9AA5;
+    font-size: 13px
+}
+
+.sum-row,
+.sum-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.sum-total {
+    font-weight: 700
+}
+
+.terms {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #9A9AA5;
+    text-align: center;
+}
+
+/* ================= CHECKOUT PAGE - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    .checkout {
+        padding: 30px 20px;
+    }
+
+    .co-container {
+        gap: 30px;
+    }
+
+    .co-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .co-block h3 {
+        font-size: 16px;
+        margin: 15px 0 6px;
+    }
+
+    .field input {
+        height: 38px;
+    }
+
+    .co-grid-3 {
+        gap: 12px;
+    }
+
+    .co-grid-2 {
+        gap: 12px;
+    }
+
+    /* Shipping options */
+    .ship-option {
+        padding: 15px 18px;
+    }
+
+    .ship-option strong {
+        font-size: 15px;
+    }
+
+    .ship-option b {
+        font-size: 15px;
+    }
+
+    /* Payment tabs */
+    .payment-tabs {
+        gap: 12px;
+    }
+
+    .pay-tab {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .pay-tab img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* UPI options */
+    .upi-option {
+        padding: 12px;
+    }
+
+    /* Place button */
+    .place-btn {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+
+    /* Summary */
+    .summary {
+        padding: 18px;
+    }
+
+    .sum-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 8px;
+    }
+
+    .sum-item img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ================= CHECKOUT PAGE - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    .checkout {
+        padding: 20px 12px;
+    }
+
+    .co-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .co-title {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .co-block h3 {
+        font-size: 16px;
+        margin: 12px 0 5px;
+    }
+
+    .co-sub {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    /* Form fields */
+    .field {
+        margin-bottom: 12px;
+    }
+
+    .field label {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .field input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* Grid layouts */
+    .co-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .co-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mt {
+        margin-top: 16px;
+    }
+
+    /* Shipping options */
+    .ship-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .ship-option>div {
+        width: 100%;
+    }
+
+    .ship-option b {
+        align-self: flex-end;
+        margin-top: 5px;
+        font-size: 16px;
+        color: #F72585;
+    }
+
+    /* Payment tabs */
+    .payment-tabs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pay-tab {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+    }
+
+    /* UPI options */
+    .upi-option {
+        padding: 12px 10px;
+    }
+
+    .upi-option img {
+        width: 22px;
+    }
+
+    /* Place button */
+    .place-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .place-btn::before {
+        display: none;
+        /* Remove animation on mobile */
+    }
+
+    .place-btn:hover {
+        box-shadow: none;
+    }
+
+    /* Summary section */
+    .summary {
+        padding: 16px;
+        margin-top: 10px;
+    }
+
+    .summary h3 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .sum-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .sum-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sum-name {
+        font-size: 14px;
+    }
+
+    .sum-item span {
+        font-size: 12px;
+    }
+
+    .sum-row {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    .sum-total {
+        font-size: 18px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 2px dashed #F3D6E2;
+    }
+
+    .terms {
+        font-size: 11px;
+        margin-top: 12px;
+    }
+}
+
+/* ================= SMALL MOBILE (max-width: 380px) ================= */
+@media screen and (max-width: 380px) {
+
+    .co-title {
+        font-size: 20px;
+    }
+
+    .ship-option {
+        padding: 12px;
+    }
+
+    .ship-option strong {
+        font-size: 14px;
+    }
+
+    .ship-option span {
+        font-size: 12px;
+    }
+
+    .ship-option b {
+        font-size: 15px;
+    }
+
+    .pay-tab {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .sum-item {
+        grid-template-columns: 40px 1fr auto;
+    }
+
+    .sum-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .place-btn {
+        font-size: 15px;
+        padding: 12px;
+    }
+}

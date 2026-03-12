@@ -1,0 +1,164 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}Contact | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="contact-hero">
+    <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p>
+            Whether you have a question about our formulas or your
+            recent order, our beauty experts are here to help.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= MAIN ================= -->
+<section class="contact-wrap">
+
+    <!-- LEFT : FORM -->
+    <div class="contact-card form-card">
+        <h3>Send a Message</h3>
+
+        <form class="contact-form">
+            <div class="row">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" id="nameField" placeholder="e.g Narmatha">
+                </div>
+                <div class="field">
+                    <label>Email Id</label>
+
+                    <input type="email" id="emailField" placeholder="nar@gmail.com">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Mobile No</label>
+
+                    <input type="text" id="phoneField" placeholder="Enter mobile number">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field full">
+                    <label>Message</label>
+                    <textarea placeholder="Type here.."></textarea>
+                </div>
+            </div>
+
+            <button class="send-btn">Send</button>
+        </form>
+    </div>
+
+
+    <!-- RIGHT : INFO -->
+    <div class="right-col">
+
+        <div class="contact-card">
+            <h3>Customer Services</h3>
+
+            <div class="info-row">
+                <div class="icon-box">
+                    <img src="{% static 'glowify/images/mail.gif' %}" alt="Email">
+                </div>
+                <div>
+                    <h4>Email Us</h4>
+                    <p>supportglowify@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="icon-box">
+                    <img src="{% static 'glowify/images/phone.gif' %}" alt="phone">
+                </div>
+                <div>
+                    <h4>Call Us</h4>
+                    <p>+91-1234567890</p>
+                    <p>+91-1234567890</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mini-card">
+            <span>Track You Order</span>
+            <div class="arrow">›</div>
+        </div>
+
+        <div class="mini-card">
+            <span>Cancel Order</span>
+            <div class="arrow">›</div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FAQ ================= -->
+<!-- ================= FAQ ================= -->
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    {% for faq in faqs %}
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            {{ forloop.counter }}. {{ faq.question }}
+            <span>⌄</span>
+        </div>
+        <div class="faq-a">
+            {{ faq.answer }}
+        </div>
+    </div>
+    {% empty %}
+    <p>No FAQs available.</p>
+    {% endfor %}
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+    function toggleFaq(el) {
+        const item = el.parentElement;
+        item.classList.toggle("open");
+    }
+</script>
+<script>
+    function autoType(input, text) {
+        input.value = "";
+        let i = 0;
+
+        const typer = setInterval(() => {
+            input.value += text.charAt(i);
+            i++;
+            if (i >= text.length) clearInterval(typer);
+        }, 60); // typing speed
+    }
+
+    const nameField = document.getElementById("nameField");
+    const emailField = document.getElementById("emailField");
+    const phoneField = document.getElementById("phoneField");
+
+    nameField.addEventListener("focus", () => {
+        if (!nameField.value) autoType(nameField, "Narmatha");
+    });
+
+    emailField.addEventListener("focus", () => {
+        if (!emailField.value) autoType(emailField, "Narmatha@gmail.com");
+    });
+
+    phoneField.addEventListener("focus", () => {
+        if (!phoneField.value) autoType(phoneField, "1234567890");
+    });
+</script>
+{% endblock %}

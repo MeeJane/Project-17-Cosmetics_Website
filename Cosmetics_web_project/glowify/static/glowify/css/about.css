@@ -1,0 +1,566 @@
+/* ================= ABOUT PAGE ================= */
+
+.about-hero {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+}
+
+.about-hero-img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    /* 🔥 scales + crops nicely */
+    object-position: top;
+    /* focus center */
+    display: block;
+
+}
+
+.about-hero-overlay {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #00000033;
+    width: 1078px;
+    height: 158px;
+
+    text-align: center;
+    padding: 20px;
+}
+
+.about-hero-overlay h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #2E2E2E;
+    font-weight: 500;
+}
+
+.about-hero-overlay p {
+    color: #2E2E2E;
+    max-width: 520px;
+    font-family: "Poppins";
+    font-weight: 400;
+
+    font-size: 16px;
+
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+
+}
+
+/* STORY */
+.about-story {
+    padding: 80px 40px;
+}
+
+.about-story-wrap {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-story-text {
+    flex: 1;
+}
+
+.about-story-text h2 {
+    font-family: 'Poppins';
+    margin-top: 20px;
+    margin-bottom: 22px;
+    color: #2E2E2E;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 24px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.about-story-text h3 {
+    font-family: 'Poppins';
+    margin: 24px 0 12px;
+}
+
+.about-story-text p {
+    color: #9A9AA5;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    font-family: "Inter";
+    font-weight: 400;
+    color: #2E2E2E;
+    font-size: 14px;
+
+    line-height: 25px;
+    letter-spacing: 2%;
+    max-width: 715px;
+
+    height: 99px;
+
+
+
+
+}
+
+.about-story-image img {
+    max-width: 400px;
+
+    height: 310px;
+
+
+    border-radius: 20px;
+
+}
+
+/* VALUES */
+.about-values {
+    padding: 60px 0 90px;
+    text-align: center;
+}
+
+.about-section-title {
+    font-family: 'Poppins';
+    margin-bottom: 40px;
+}
+
+.about-values-grid {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.about-value-card {
+    max-width: 314px;
+    width: 100%;
+    height: 340px;
+    background: linear-gradient(180deg, #FF6FAE, #F72585);
+    color: #fff;
+    padding: 36px 26px;
+    border-radius: 160px 160px 16px 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
+}
+
+.about-value-icon {
+    width: 150px;
+    margin-bottom: 10px;
+
+
+
+}
+
+.about-value-card h4 {
+    font-family: 'Inter';
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.about-value-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+    font-family: 'Inter';
+
+
+}
+
+/* FOUNDER */
+.about-founder {
+    padding: 60px 0;
+}
+
+.about-founder-wrap {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+
+}
+
+.about-founder-image img {
+    width: 320px;
+    height: 385px;
+    border-radius: 12px;
+    object-fit: cover;
+
+}
+
+.about-founder-text {
+    flex: 1;
+    width: 706px;
+    height: 262px;
+
+}
+
+.about-founder-text h2 {
+    font-family: 'Poppins';
+    margin-bottom: 12px;
+
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 24px;
+    color: #2E2E2E;
+    line-height: 25px;
+    letter-spacing: 2%;
+
+}
+
+.about-founder-sub {
+    color: #9A9AA5;
+    margin-bottom: 14px;
+}
+
+.about-founder-text p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    font-family: "Inter";
+    font-weight: 400;
+
+    font-size: 14px;
+
+    line-height: 25px;
+    letter-spacing: 2%;
+
+}
+
+/* COMMITMENT */
+.about-commitment {
+    padding: 70px 0 20px;
+}
+
+.about-commitment-box {
+    max-width: 1254px;
+    width: 80%;
+    margin: auto;
+    background: #FFE3EC;
+
+    padding: 50px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #FFE3EC;
+    margin-bottom: 50px;
+}
+
+.about-commitment-box h2 {
+    font-family: 'Poppins';
+    margin-bottom: 18px;
+
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 24px;
+
+    line-height: 25px;
+    letter-spacing: 2%;
+    text-align: center;
+
+}
+
+.about-commitment-box p {
+    max-width: 807px;
+    width: 100%;
+    text-align: center;
+    color: #2E2E2E;
+    margin-bottom: 8px;
+    font-family: "Inter";
+    font-weight: 400;
+
+    font-size: 14px;
+
+    line-height: 25px;
+    letter-spacing: 2%;
+    text-align: center;
+
+}
+
+.about-btn-primary {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #FF6FAE, #FF4D94, #F72585);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(247, 37, 133, .35);
+    font-weight: 500;
+    font-size: 16px;
+    font-family: "Poppins";
+}
+
+.about-btn-primary:hover {
+    background: #B7104D;
+}
+
+/* ================= ABOUT PAGE - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    /* Hero Section */
+    .about-hero {
+        height: 300px;
+    }
+
+    .about-hero-overlay {
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        min-height: 140px;
+        padding: 25px;
+    }
+
+    .about-hero-overlay h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .about-hero-overlay p {
+        font-size: 15px;
+        max-width: 90%;
+    }
+
+    /* Story Section */
+    .about-story {
+        padding: 60px 30px;
+    }
+
+    .about-story-wrap {
+        gap: 40px;
+    }
+
+    .about-story-text p {
+        max-width: 100%;
+        height: auto;
+        min-height: 99px;
+    }
+
+    .about-story-image img {
+        max-width: 350px;
+        height: 280px;
+    }
+
+    /* Values Section */
+    .about-values-grid {
+        width: 100%;
+        max-width: 900px;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .about-value-card {
+        max-width: 280px;
+        height: 320px;
+        padding: 30px 20px;
+    }
+
+    .about-value-icon {
+        width: 120px;
+    }
+
+    .about-value-card h4 {
+        font-size: 18px;
+    }
+
+    /* Founder Section */
+    .about-founder-wrap {
+        width: 100%;
+        max-width: 900px;
+        gap: 50px;
+        padding: 0 20px;
+    }
+
+    .about-founder-text {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-founder-image img {
+        width: 280px;
+        height: 340px;
+    }
+
+    /* Commitment Section */
+    .about-commitment-box {
+        width: 90%;
+        padding: 40px 30px;
+    }
+
+    .about-commitment-box p {
+        max-width: 100%;
+    }
+}
+
+/* ================= ABOUT PAGE - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    /* Hero Section */
+    .about-hero {
+        height: 250px;
+    }
+
+    .about-hero-overlay {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    .about-hero-overlay h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .about-hero-overlay p {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    /* Story Section */
+    .about-story {
+        padding: 40px 20px;
+    }
+
+    .about-story-wrap {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-story-text {
+        text-align: center;
+    }
+
+    .about-story-text h2 {
+        font-size: 22px;
+        margin: 15px 0;
+    }
+
+    .about-story-text p {
+        font-size: 13px;
+        line-height: 23px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .about-story-image {
+        order: -1;
+    }
+
+    .about-story-image img {
+        max-width: 100%;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    /* Values Section */
+    .about-values {
+        padding: 40px 0 60px;
+    }
+
+    .about-section-title {
+        font-size: 22px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .about-values-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .about-value-card {
+        max-width: 100%;
+        width: 90%;
+        height: auto;
+        min-height: 300px;
+        padding: 30px 20px;
+        border-radius: 120px 120px 16px 16px;
+    }
+
+    .about-value-icon {
+        width: 100px;
+    }
+
+    .about-value-card h4 {
+        font-size: 18px;
+    }
+
+    .about-value-card p {
+        font-size: 13px;
+    }
+
+    /* Founder Section */
+    .about-founder {
+        padding: 40px 0;
+    }
+
+    .about-founder-wrap {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .about-founder-image img {
+        width: 100%;
+        max-width: 280px;
+        height: 340px;
+    }
+
+    .about-founder-text {
+        padding: 0 20px;
+    }
+
+    .about-founder-text h2 {
+        font-size: 22px;
+    }
+
+    .about-founder-sub {
+        font-size: 14px;
+    }
+
+    .about-founder-text p {
+        font-size: 13px;
+        line-height: 23px;
+    }
+
+    /* Commitment Section */
+    .about-commitment {
+        padding: 40px 0 10px;
+    }
+
+    .about-commitment-box {
+        width: 95%;
+        padding: 30px 20px;
+        margin-bottom: 30px;
+    }
+
+    .about-commitment-box h2 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .about-commitment-box p {
+        font-size: 13px;
+        line-height: 23px;
+    }
+
+    .about-btn-primary {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+}

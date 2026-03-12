@@ -1,0 +1,107 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}Cart | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="cart-section">
+    <div class="cart-container">
+
+        <!-- LEFT -->
+        <div class="cart-left">
+            <h2 class="cart-title">Your Cart</h2>
+            <p class="cart-sub">Review your selection Before Checkout({{ items|length }} items)</p>
+
+            <div class="cart-head">
+                <div>Product</div>
+                <div>Quantity</div>
+                <div>Price</div>
+                <div>Total</div>
+            </div>
+
+            {% for item in items %}
+            <div class="cart-row">
+
+                <!-- Product -->
+                <div class="cart-product">
+                    <span class="serial">{{ forloop.counter }}</span>
+
+                    <input type="checkbox" checked>
+
+                    <img src="{{ item.product.image.url }}">
+
+                    <div>
+                        <h4>{{ item.product.name }}</h4>
+                        {% if item.variant %}
+                        <p>Shade - {{ item.variant.shade_name }}</p>
+                        {% endif %}
+
+                        <a href="{% url 'remove_cart_item' item.id %}" class="remove">Remove</a>
+                    </div>
+                </div>
+
+                <!-- Qty -->
+                <div class="cart-qty">
+                    <a href="{% url 'update_cart_qty' item.id 'dec' %}">−</a>
+                    <span>{{ item.quantity }}</span>
+                    <a href="{% url 'update_cart_qty' item.id 'inc' %}">+</a>
+                </div>
+
+                <!-- Price -->
+                <div class="cart-price">
+                    Price: ₹{{ item.unit_price }}
+                </div>
+
+                <!-- Total -->
+                <div class="cart-total">
+                    Price: ₹{{ item.total_price }}
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- RIGHT SUMMARY -->
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+
+            <div class="sum-row">
+                <span>{{ items|length }} Item selected</span>
+            </div>
+
+            <div class="sum-row">
+                <span>Subtotal</span>
+                <span>₹{{ subtotal }}</span>
+            </div>
+
+            <div class="sum-row">
+                <span>Estimated Shipping</span>
+                <span>₹{{ shipping }}</span>
+            </div>
+
+            <div class="sum-row">
+                <span>GST</span>
+                <span>₹{{ gst }}</span>
+            </div>
+
+            <hr>
+
+            <div class="sum-row total">
+                <span>Total</span>
+                <span>₹{{ total }}</span>
+            </div>
+
+            <a href="{% url 'checkout_page' %}" class="checkout-btn">
+                Proceed to Checkout
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

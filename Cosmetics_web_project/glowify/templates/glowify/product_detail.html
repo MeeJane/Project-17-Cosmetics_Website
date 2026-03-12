@@ -1,0 +1,197 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}{{ product.name }} | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/product-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="pd-section">
+    <div class="pd-container">
+
+        <!-- LEFT IMAGE -->
+        <div class="pd-image">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+
+        <!-- RIGHT DETAILS -->
+        <div class="pd-info">
+
+            <h1 class="pd-title">{{ product.name }}</h1>
+
+            <!-- Rating -->
+            <div class="pd-rating">
+                ⭐ {{ product.average_rating }} ({{ product.review_count }} Reviews)
+            </div>
+
+            <!-- Short Description -->
+            <p class="pd-desc">
+                {{ product.description|truncatewords:30 }}
+            </p>
+
+            <!-- Price -->
+            <div class="pd-price">
+                ₹{{ product.price }}
+            </div>
+
+            <!-- Shades -->
+            {% if variants %}
+            <div class="pd-shades">
+                <h4>Select Shade</h4>
+
+                <div class="shade-list">
+                    {% for v in variants %}
+
+                    <label class="shade-item">
+                        <input type="radio" name="variant" value="{{ v.id }}">
+
+                        <span class="shade-color" style="background: {{ v.shade_hex }}"></span>
+                        <span class="shade-name">{{ v.shade_name }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Cart Row -->
+            <form method="POST" action="{% url 'add_to_cart' %}" class="pd-cart">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <input type="hidden" name="variant_id" id="variantInput">
+
+                <!-- Qty Counter -->
+                <div class="qty-box">
+                    <button type="button" onclick="changeQty(-1)">−</button>
+                    <input type="text" id="qty" name="quantity" value="1">
+                    <button type="button" onclick="changeQty(1)">+</button>
+                </div>
+
+                <!-- Add to cart -->
+                <button class="pd-cart-btn">Add to Cart</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<section class="product-tabs">
+
+    <!-- TAB HEADERS -->
+    <div class="tab-headers">
+        <button class="tab-btn active" data-tab="desc">Product Description</button>
+        <button class="tab-btn" data-tab="how">How to Use</button>
+        <button class="tab-btn" data-tab="benefits">Benifits</button>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="tab-content active" id="desc">
+        <h4>Luxury. Comfort. Timeless Color.</h4>
+        <p>
+            Glowify Cream Luxe Finish Lipstick delivers rich, creamy color with a
+            smooth satin glow. Designed for women who love elegance without dryness,
+            this formula glides effortlessly and keeps your lips soft, hydrated,
+            and radiant all day.
+        </p>
+
+        <h5>Product Details</h5>
+        <ul>
+            <li>Net Weight: 3.5g</li>
+            <li>Finish: Cream Luxe (Satin Glow)</li>
+            <li>Skin Type: Suitable for all</li>
+            <li>Dermatologically Tested</li>
+        </ul>
+    </div>
+
+    <!-- HOW TO USE -->
+    <div class="tab-content" id="how">
+        <ol>
+            <li>Start with clean, dry lips.</li>
+            <li>Outline with a lip liner (optional).</li>
+            <li>Apply directly from the bullet for full coverage.</li>
+            <li>Blot lightly for a softer finish.</li>
+        </ol>
+
+        <h4>Enriched With</h4>
+        <ul>
+            <li>Vitamin E – Nourishes & protects lips</li>
+            <li>Shea Butter – Deep hydration & smoothness</li>
+            <li>Jojoba Oil – Softens & enhances comfort</li>
+        </ul>
+
+        <h4>Perfect For</h4>
+        <ul>
+            <li>Daily office wear</li>
+            <li>Special occasions</li>
+            <li>Bridal & festive makeup</li>
+            <li>Date nights & parties</li>
+        </ul>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="tab-content" id="benefits">
+        <ol>
+            <li>Deep hydration</li>
+            <li>Smooth creamy glide</li>
+            <li>Rich one-swipe color</li>
+            <li>Lightweight comfort</li>
+            <li>Soft satin glow</li>
+            <li>Long-lasting wear</li>
+        </ol>
+    </div>
+
+</section>
+<section class="related">
+    <h3>You may also Like</h3>
+
+    <div class="related-grid">
+        {% for p in related_products %}
+        <div class="related-card">
+            <img src="{{ p.image.url }}">
+            <h4>{{ p.name }}</h4>
+            <a href="{% url 'product_detail' p.slug %}" class="shop-btn">Shop Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const qtyInput = document.getElementById("qty");
+
+        window.changeQty = function (val) {
+            let num = parseInt(qtyInput.value) || 1;
+            num += val;
+            if (num < 1) num = 1;
+            qtyInput.value = num;
+        };
+    });
+
+
+    // capture shade select
+    document.querySelectorAll('input[name="variant"]').forEach(r => {
+        r.addEventListener("change", () => {
+            document.getElementById("variantInput").value = r.value;
+        });
+    });
+</script>
+<script>
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabs.forEach(b => b.classList.remove("active"));
+            contents.forEach(c => c.classList.remove("active"));
+
+            btn.classList.add("active");
+            document.getElementById(btn.dataset.tab).classList.add("active");
+        });
+    });
+</script>
+{% endblock %}

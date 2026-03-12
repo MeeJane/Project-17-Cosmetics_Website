@@ -1,0 +1,143 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}{{ category.name }} | Glowify{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/shop.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="shop-section">
+
+    <div class="shop-container">
+
+        <!-- ================= FILTER SIDEBAR ================= -->
+        <aside class="shop-filter">
+
+            <!-- Filter Title -->
+            <h3 class="filter-title">
+                <img src="{% static 'glowify/images/filter-icon.png' %}" alt="Filter">
+                Filter
+            </h3>
+
+            <!-- ================= BRAND ================= -->
+            <div class="filter-item active">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Brand
+                    <span class="chevron">⌃</span>
+                </div>
+                <div class="filter-body">
+                    <label><input type="checkbox" name="brand" value="glowify"> Glowify</label>
+                    <label><input type="checkbox" name="brand" value="luxeaura"> LuxeAura</label>
+                    <label><input type="checkbox" name="brand" value="velvete"> Velveté</label>
+                    <label><input type="checkbox" name="brand" value="elan"> Elan Beauty</label>
+                    <label><input type="checkbox" name="brand" value="auralips"> AuraLips</label>
+                </div>
+            </div>
+
+            <!-- ================= COLOR ================= -->
+            <div class="filter-item active">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Color
+                    <span class="chevron">⌃</span>
+                </div>
+                <div class="filter-body">
+                    <label><input type="checkbox" name="color" value="classic-red"> Classic Red</label>
+                    <label><input type="checkbox" name="color" value="cherry-red"> Cherry Red</label>
+                    <label><input type="checkbox" name="color" value="wine-red"> Wine Red</label>
+                    <label><input type="checkbox" name="color" value="baby-pink"> Baby Pink</label>
+                    <label><input type="checkbox" name="color" value="rose-pink"> Rose Pink</label>
+                </div>
+            </div>
+
+
+            <!-- ================= DISCOUNT ================= -->
+            <div class="filter-item active">
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Discount
+                    <span class="chevron">⌃</span>
+                </div>
+                <div class="filter-body">
+                    <label><input type="checkbox" name="discount" value="10-20"> 10–20%</label>
+                    <label><input type="checkbox" name="discount" value="20-50"> 20–50%</label>
+                    <label><input type="checkbox" name="discount" value="50+"> 50% & Above</label>
+                    <label><input type="checkbox" name="discount" value="bogo"> Buy 1 Get 1</label>
+                    <label><input type="checkbox" name="discount" value="flat100"> Flat ₹100 Off</label>
+                </div>
+            </div>
+
+            <!-- ================= PRICE ================= -->
+            <div class="filter-item active">
+
+                <div class="filter-header" onclick="toggleFilter(this)">
+                    Price
+                    <span class="chevron">⌃</span>
+                </div>
+                <div class="filter-body">
+                    <label><input type="checkbox" name="price" value="0-499"> ₹0 – ₹499</label>
+                    <label><input type="checkbox" name="price" value="500-799"> ₹500 – ₹799</label>
+                    <label><input type="checkbox" name="price" value="800-1099"> ₹800 – ₹1,099</label>
+                    <label><input type="checkbox" name="price" value="1100+"> ₹1,100 & Above</label>
+                </div>
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= PRODUCT AREA ================= -->
+        <div class="shop-products">
+
+            <!-- Title -->
+            <div class="shop-header">
+                <h2>{{ category.name }}</h2>
+                <button class="sort-btn">Sort By</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="product-grid">
+
+                {% for product in products %}
+                <div class="product-card">
+
+                    <img src="{{ product.image.url }}" class="product-img">
+
+                    <h4>{{ product.name }}</h4>
+
+                    <p class="product-desc">
+                        {{ product.short_description }}
+                    </p>
+
+                    <div class="rating">
+                        ⭐ {{ product.rating }} ({{ product.review_count }} Reviews)
+                    </div>
+
+                    <div class="price">
+                        Price: ₹{{ product.price }}
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="{% url 'product_detail' product.slug %}">
+                            <button class="btn-cart">Add to cart</button>
+                        </a>
+                        <button class="favorite-btn {% if product.id in wishlisted_ids %}active{% endif %}"
+                            onclick="toggleFavorite(this, {{ product.id }})">
+
+                            <i class="{% if product.id in wishlisted_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+
+                        </button>
+                    </div>
+
+                </div>
+                {% empty %}
+                <p>No products found.</p>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

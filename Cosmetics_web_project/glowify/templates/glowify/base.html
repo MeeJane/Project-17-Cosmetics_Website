@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Glowify{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Font-Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font-Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'glowify/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'glowify/css/auth.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'glowify/css/shop.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <img src="{% static 'glowify/images/logo.png' %}" alt="Glowify">
+        </a>
+        <div class="nav-container">
+
+
+
+            <!-- Search -->
+            <div class="search-box">
+                <img src="{% static 'glowify/images/search.png' %}" class="search-icon">
+                <input type="text" id="searchInput" placeholder="Search lipsticks...">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-links">
+                <a href="{% url 'home' %}" class="nav-item">Home</a>
+
+                <!-- Shop Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="nav-item">Shop</a>
+                    <div class="dropdown-menu">
+                        {% for cat in nav_categories %}
+                        <a href="{% url 'category_products' cat.slug %}">
+                            {{ cat.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <a href="{% url 'offers' %}" class="nav-item {% if request.path == '/offers/' %}active{% endif %}">
+                    Offers
+                </a>
+                <a href="/about/" class="nav-item {% if request.path == '/about/' %}active{% endif %}">
+                    About
+                </a>
+                <a href="/contact/" class="nav-item">Contact</a>
+            </nav>
+
+            <!-- Icons -->
+            <div class="nav-icons">
+                <a href="/cart/">
+                    <img src="{% static '/glowify/images/cart.png' %}">
+                </a>
+
+                <a href="{% url 'wishlist' %}">
+                    <img src="{% static 'glowify/images/heart.png' %}">
+                </a>
+
+                <!-- Profile -->
+                {% if user.is_authenticated %}
+                <div class="dropdown profile">
+                    <button class="profile-btn">
+                        <div class="profile-avatar">
+                            {{ user.first_name|default:user.username|first|upper }}
+                        </div>
+                        <span>Hi, {{ user.first_name|default:user.username }}</span>
+                    </button>
+
+                    <div class="dropdown-menu right">
+                        <a href="/account/">My Account</a>
+                        <a href="/orders/">My Orders</a>
+                        <a href="/logout/">Logout</a>
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="dropdown profile">
+                    <button class="profile-btn">
+                        <div class="profile-avatar">
+                            <img src="{% static 'glowify/images/user.png' %}">
+                        </div>
+                    </button>
+                    <div class="dropdown-menu right">
+                        <a href="/login/">Login</a>
+                        <a href="/register/">Register</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= CONTENT ================= -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+
+
+        <!-- Perfect Smooth Wave -->
+        <div class="ftr-flex">
+
+            <div class="home-ftr-wave">
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+                <div class="semicircle"></div>
+            </div>
+        </div>
+
+        <div class="footer-content">
+
+            <!-- Brand -->
+            <div class="footer-brand">
+                <img src="{% static 'glowify/images/logo-round.png' %}">
+                <p>
+                    3rd Floor, Valasaravakam,<br>
+                    Chennai - 600080
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#">Shop</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Offers</a>
+            </div>
+
+            <!-- Support -->
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <!-- Social -->
+            <div class="footer-links">
+                <h4>Social Media</h4>
+                <div class="social-icons">
+                    <img src="{% static 'glowify/images/facebook.png' %}">
+                    <img src="{% static 'glowify/images/instagram.png' %}">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="{% static 'glowify/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

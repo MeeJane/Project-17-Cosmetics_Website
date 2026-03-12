@@ -1,0 +1,86 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="auth-section">
+    <div class="auth-container">
+
+        <!-- Left Illustration -->
+        <div class="auth-illustration">
+            <img src="{% static 'glowify/images/auth-girl.png' %}" alt="Register">
+        </div>
+
+        <!-- Right Form Card -->
+        <div class="auth-card">
+            <h2 class="auth-title">Register Now !</h2>
+
+            <div class="auth-box">
+                <h3>Create Account</h3>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="e.g Narmatha" required>
+
+                    <label>Email Id</label>
+                    <input type="email" name="email" placeholder="nar@gmail.com" required>
+
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" name="password" placeholder="Enter Password" required>
+                        <img src="{% static 'glowify/images/eye-off.png' %}" class="eye">
+                    </div>
+
+                    <div class="remember">
+                        <input type="checkbox" checked>
+                        <span>Remember me</span>
+                    </div>
+
+                    <button class="btn-primary">Register</button>
+
+                    <p class="switch">
+                        Already have an account?
+                        <a href="{% url 'login' %}">Login</a>
+                    </p>
+
+                    <p class="instant">Instant Signup</p>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social">
+                            <img src="{% static 'glowify/images/G-auth.png' %}">
+                            Continue With google
+                        </button>
+                        <button type="button" class="btn-social">
+                            <img src="{% static 'glowify/images/fb-auth.png' %}">
+                            Continue With facebook
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const registerForm = document.querySelector("form");
+
+        if (!registerForm) return;
+
+        let filled = false;
+
+        registerForm.addEventListener("focusin", function () {
+            if (filled) return;
+
+            registerForm.querySelector('input[name="first_name"]').value = "Narmatha";
+            registerForm.querySelector('input[name="email"]').value = "narmatha@gmail.com";
+            registerForm.querySelector('input[name="password"]').value = "XXXXXX";
+
+            filled = true; // run only once
+        });
+    });
+</script>
+
+{% endblock %}

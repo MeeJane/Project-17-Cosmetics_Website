@@ -1,0 +1,430 @@
+.track {
+    background: #F3F3F3;
+    padding: 40px;
+    font-family: Inter;
+    color: #2E2E2E;
+}
+
+.track-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.track-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* PRODUCT BANNER */
+
+.product-banner {
+    padding: 18px 22px;
+    border-radius: 12px;
+    color: white;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 500;
+
+    /* Strong gradient */
+    background: linear-gradient(270deg,
+            #FF6FAE,
+            #FF4D94,
+            #F72585,
+            #FF4D94,
+            #FF6FAE);
+
+    background-size: 400% 400%;
+
+    animation: bannerGlow 6s ease infinite;
+}
+
+/* Smooth dark-bright flow */
+@keyframes bannerGlow {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+/* STEPS */
+
+.steps {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.step {
+    text-align: center;
+    width: 120px;
+}
+
+.circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    color: white;
+    font-size: 16px;
+}
+
+.step.done .circle {
+    background: #F72585;
+}
+
+.step p {
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.line {
+    flex: 1;
+    height: 2px;
+    background: #D9D9D9;
+}
+
+/* MESSAGE */
+
+.track-msg {
+    font-size: 13px;
+    color: #9A9AA5;
+    margin-bottom: 14px;
+}
+
+/* MAP */
+
+.map-box {
+    position: relative;
+}
+
+.map {
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.map-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.map-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #F72585;
+    background: white;
+    cursor: pointer;
+    font-family: Inter;
+}
+
+/* DELIVERY CARD */
+
+.delivery-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.delivery-card h3 {
+    font-family: Poppins;
+    margin-bottom: 10px;
+}
+
+.delivery-card h4 {
+    margin-top: 16px;
+    font-family: Poppins;
+}
+
+.label {
+    color: #9A9AA5;
+    font-size: 13px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #D9D9D9;
+    margin: 40px 0;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.map-box {
+    position: relative;
+}
+
+.truck {
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.map-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid #F72585;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: Inter;
+}
+
+/* ================= TRACK ORDER PAGE - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    .track {
+        padding: 30px 20px;
+    }
+
+    .track-grid {
+        gap: 30px;
+    }
+
+    .product-banner {
+        padding: 16px 20px;
+        font-size: 18px;
+    }
+
+    .steps {
+        margin: 25px 0;
+    }
+
+    .step {
+        width: 100px;
+    }
+
+    .circle {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .step p {
+        font-size: 13px;
+    }
+
+    .map,
+    #map {
+        height: 250px;
+    }
+
+    .map-gif,
+    .truck {
+        width: 90px;
+    }
+
+    .map-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .delivery-card {
+        padding: 18px;
+    }
+
+    .delivery-card h3 {
+        font-size: 18px;
+    }
+
+    .delivery-card h4 {
+        font-size: 16px;
+        margin-top: 14px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    hr {
+        margin: 30px 0;
+    }
+}
+
+/* ================= TRACK ORDER PAGE - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    .track {
+        padding: 20px 12px;
+    }
+
+    .track-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .product-banner {
+        padding: 14px 16px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Steps become scrollable on mobile */
+    .steps {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .steps::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .steps::-webkit-scrollbar-thumb {
+        background: #F72585;
+        border-radius: 10px;
+    }
+
+    .step {
+        width: 90px;
+        flex-shrink: 0;
+    }
+
+    .circle {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .step p {
+        font-size: 12px;
+    }
+
+    .line {
+        min-width: 30px;
+        flex-shrink: 0;
+    }
+
+    .track-msg {
+        font-size: 12px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* Map */
+    .map-box {
+        margin: 10px 0;
+    }
+
+    .map,
+    #map {
+        height: 220px;
+    }
+
+    .map-gif,
+    .truck {
+        width: 80px;
+    }
+
+    .map-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* Delivery Card */
+    .delivery-card {
+        padding: 16px;
+    }
+
+    .delivery-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .delivery-card p {
+        font-size: 14px;
+    }
+
+    .delivery-card h4 {
+        font-size: 16px;
+        margin-top: 12px;
+        margin-bottom: 5px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    hr {
+        margin: 25px 0;
+    }
+}
+
+/* ================= SMALL MOBILE (max-width: 380px) ================= */
+@media screen and (max-width: 380px) {
+
+    .product-banner {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .step {
+        width: 80px;
+    }
+
+    .circle {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .step p {
+        font-size: 11px;
+    }
+
+    .map,
+    #map {
+        height: 180px;
+    }
+
+    .map-gif,
+    .truck {
+        width: 70px;
+    }
+
+    .delivery-card h3 {
+        font-size: 16px;
+    }
+
+    .delivery-card p {
+        font-size: 13px;
+    }
+}

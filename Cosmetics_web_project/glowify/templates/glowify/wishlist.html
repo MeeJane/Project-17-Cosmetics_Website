@@ -1,0 +1,60 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}My Wishlist | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/shop.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="shop-section">
+    <div class="shop-container">
+
+        <div class="shop-products" style="width:100%;">
+
+            <div class="shop-header">
+                <h2>My Wishlist</h2>
+            </div>
+
+            <div class="product-grid">
+                {% for item in items %}
+                <div class="product-card">
+
+                    <img src="{{ item.product.image.url }}" class="product-img">
+
+                    <h4>{{ item.product.name }}</h4>
+
+                    <p class="product-desc">
+                        {{ item.product.short_description }}
+                    </p>
+
+                    <div class="rating">
+                        ⭐ {{ item.product.average_rating }}
+                        ({{ item.product.review_count }} Reviews)
+                    </div>
+
+                    <div class="price">
+                        Price: ₹{{ item.product.price }}
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn-cart">Add to cart</button>
+
+                        <button class="favorite-btn active" onclick="toggleFavorite(this, {{ item.product.id }})">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+
+                </div>
+                {% empty %}
+                <p>Your wishlist is empty.</p>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

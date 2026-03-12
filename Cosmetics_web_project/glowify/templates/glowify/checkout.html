@@ -1,0 +1,335 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+{% block title %}Checkout | Glowify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="checkout">
+    <div class="co-container">
+
+        <!-- LEFT -->
+        <div class="co-left">
+
+            <h2 class="co-title">Checkout</h2>
+
+            <!-- 1 Shipping -->
+            <div class="co-block">
+                <h3>1. Shipping Address</h3>
+                <p class="co-sub">Please enter your delivery details below to proceed.</p>
+
+                <form method="POST" action="#">
+                    {% csrf_token %}
+
+                    <div class="co-grid-3">
+                        <div class="field">
+                            <label>First Name*</label>
+                            <input id="firstName" type="text" placeholder="e.g Narmatha">
+
+                        </div>
+                        <div class="field">
+                            <label>Last Name</label>
+                            <input id="lastName" type="text" placeholder="e.g Tharmaraj">
+
+                        </div>
+                        <div class="field">
+                            <label>Mobile No*</label>
+                            <input id="mobile" type="text" placeholder="Enter mobile number">
+
+
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Address*</label>
+                        <input id="address" type="text" placeholder="123 Luxury lane, Tenkasi">
+
+                    </div>
+
+                    <div class="co-grid-3">
+                        <div class="field">
+                            <label>City*</label>
+                            <input id="city" type="text" placeholder="e.g Tenkasi">
+
+                        </div>
+                        <div class="field">
+                            <label>State*</label>
+                            <input id="state" type="text" placeholder="e.g Tamil Nadu">
+
+                        </div>
+                        <div class="field">
+                            <label>Pin code*</label>
+                            <input id="pincode" type="text" placeholder="Enter Pincode">
+                        </div>
+                    </div>
+
+                    <!-- 2 Shipping Method -->
+                    <h3 class="mt">2. Shipping Method</h3>
+
+                    <label class="ship-option active">
+                        <div>
+                            <input type="radio" name="ship" checked>
+                            <div class="ship-text">
+                                <strong>Standard Delivery</strong>
+                                <span>3-5 Business Day</span>
+                            </div>
+                        </div>
+                        <b>₹50</b>
+                    </label>
+
+                    <label class="ship-option">
+                        <div>
+                            <input type="radio" name="ship">
+                            <div class="ship-text">
+                                <strong>Fast Delivery</strong>
+                                <span>1-2 Business Day</span>
+                            </div>
+                        </div>
+                        <b>₹50</b>
+                    </label>
+
+                    <!-- 3 Payment -->
+                    <h3 class="mt">3. Payment Method</h3>
+
+                    <div class="payment-tabs">
+
+                        <button type="button" class="pay-tab active" data-tab="card">
+                            <img src="{% static 'glowify/images/card.png' %}" alt="">
+                            Credit Card
+                        </button>
+
+                        <button type="button" class="pay-tab" data-tab="netbanking">
+                            <img src="{% static 'glowify/images/netbanking.png' %}" alt="">
+                            Net Banking
+                        </button>
+
+                        <button type="button" class="pay-tab" data-tab="upi">
+                            <img src="{% static 'glowify/images/upi.png' %}" alt="">
+                            UPI
+                        </button>
+
+                    </div>
+
+                    <!-- CARD -->
+                    <div class="pay-content active" id="card">
+                        <div class="field">
+                            <label>Card Number*</label>
+                            <input id="cardNumber" type="text" placeholder="0000 0000 0000 0000">
+
+
+                        </div>
+
+                        <div class="co-grid-2">
+                            <div class="field">
+                                <label>Expiry Date*</label>
+                                <input id="expiryDate" type="text" placeholder="MM/YYYY">
+
+
+                            </div>
+                            <div class="field">
+                                <label>CVV*</label>
+                                <input id="cvv" type="text" placeholder="000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NET BANKING -->
+                    <div class="pay-content" id="netbanking">
+                        <div class="field">
+                            <label>Savings Account No*</label>
+                            <input id="accountNo" type="text" placeholder="0000 0000 0000 0">
+
+
+                        </div>
+                        <div class="field">
+                            <label>Account Holder Name*</label>
+                            <input id="accountName" type="text" placeholder="Narmatha">
+
+
+                        </div>
+                        <div class="field">
+                            <label>Bank Name*</label>
+                            <input id="bankName" type="text" placeholder="IOB">
+                        </div>
+                    </div>
+
+                    <!-- UPI -->
+                    <div class="pay-content" id="upi">
+
+                        <label class="upi-option active">
+                            <input type="radio" name="upi" checked>
+                            <span class="radio"></span>
+                            <img src="{% static 'glowify/images/gpay.png' %}">
+                            Google Pay
+                        </label>
+
+                        <label class="upi-option">
+                            <input type="radio" name="upi">
+                            <span class="radio"></span>
+                            <img src="{% static 'glowify/images/phonepe.png' %}">
+                            PhonePe
+                        </label>
+
+                        <label class="upi-option">
+                            <input type="radio" name="upi">
+                            <span class="radio"></span>
+                            <img src="{% static 'glowify/images/paytm.png' %}">
+                            Paytm
+                        </label>
+
+                    </div>
+                    <button id="rzp-button" class="place-btn">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- RIGHT SUMMARY -->
+        <div class="co-right">
+            <div class="summary">
+                <h3>Order Summary</h3>
+
+                {% for item in items %}
+                <div class="sum-item">
+                    <img src="{{ item.product.image.url }}">
+                    <div>
+                        <p class="sum-name">{{ item.product.name }}</p>
+                        {% if item.variant %}<span>Shade - {{ item.variant.shade_name }}</span>{% endif %}
+                        <span>Qty: {{ item.quantity }}</span>
+                    </div>
+                    <b>Price: ₹{{ item.total_price }}</b>
+                </div>
+                {% endfor %}
+
+                <hr>
+
+                <div class="sum-row"><span>Subtotal</span><b>₹{{ subtotal }}</b></div>
+                <div class="sum-row"><span>Estimated Shipping</span><b>₹{{ shipping }}</b></div>
+                <div class="sum-row"><span>GST</span><b>₹{{ gst }}</b></div>
+
+                <hr>
+
+                <div class="sum-total"><span>Total</span><b>₹{{ total }}</b></div>
+
+                <p class="terms">
+                    By placing your order, you agree to glowify Terms of service and Privacy Policy
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const tabs = document.querySelectorAll(".pay-tab");
+        const contents = document.querySelectorAll(".pay-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.remove("active"));
+
+                tab.classList.add("active");
+
+                const target = document.getElementById(tab.dataset.tab);
+                if (target) target.classList.add("active");
+
+            });
+        });
+
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Card fields
+        const expiry = document.getElementById("expiryDate");
+        const cvv = document.getElementById("cvv");
+
+        // Net banking fields
+        const accNo = document.getElementById("accountNo");
+        const accName = document.getElementById("accountName");
+        const bank = document.getElementById("bankName");
+
+        if (expiry) {
+            expiry.addEventListener("focus", () => {
+                expiry.value = "08/2030";
+            });
+        }
+
+        if (cvv) {
+            cvv.addEventListener("focus", () => {
+                cvv.value = "123";
+            });
+        }
+
+        if (accNo) {
+            accNo.addEventListener("focus", () => {
+                accNo.value = "1395 0100 1237 8";
+            });
+        }
+
+        if (accName) {
+            accName.addEventListener("focus", () => {
+                accName.value = "Narmatha";
+            });
+        }
+
+        if (bank) {
+            bank.addEventListener("focus", () => {
+                bank.value = "IOB";
+            });
+        }
+
+    });
+</script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+
+    var options = {
+        "key": "{{ razorpay_key }}",
+        "amount": "{{ total|floatformat:0 }}00",
+        "currency": "INR",
+        "name": "Glowify",
+        "description": "Cosmetics Order",
+        "order_id": "{{ razorpay_order_id }}",
+
+        "handler": function (response) {
+
+            fetch("/payment-success/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: JSON.stringify(response)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    window.location.href = "/order-confirmed/"
+                })
+
+        },
+
+        "theme": {
+            "color": "#F72585"
+        }
+
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    document.getElementById("rzp-button").onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+
+</script>
+{% endblock %}

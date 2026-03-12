@@ -1,0 +1,470 @@
+/* =========================
+   FONTS
+========================= */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2E2E2E;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+/* =========================
+   OVERLAY AUTH LAYOUT
+========================= */
+
+.auth-section {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* wrapper */
+.auth-container {
+    position: relative;
+    width: 1200px;
+    max-width: 95%;
+}
+
+/* IMAGE */
+.auth-illustration img {
+    width: 100%;
+    display: block;
+    border-radius: 24px;
+}
+
+/* FLOATING FORM */
+.auth-card {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    /* distance from right edge */
+    transform: translateY(-50%);
+
+
+}
+
+/* FORM BOX */
+.auth-box {
+    max-width: 520px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 30px;
+    border: 1px solid #F8AFC2;
+    box-shadow: 0px 4px 16px 0px #00000040;
+    border-radius: 20px;
+}
+
+/* TITLE */
+.auth-title {
+    text-align: left;
+    margin-bottom: 18px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+.auth-box h3 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.auth-box label {
+    display: block;
+    font-size: 14px;
+    margin: 14px 0 6px;
+    font-weight: 500;
+    color: #2E2E2E;
+    font-weight: 500;
+}
+
+.auth-box input {
+
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    background: #ffffff;
+    transition: all .2s ease;
+}
+
+.auth-box input::placeholder {
+    color: #9A9AA5;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+
+.auth-box input:focus {
+    outline: none;
+    border-color: #FF4D94;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(247, 37, 133, .15);
+}
+
+
+/* =========================
+   PASSWORD FIELD
+========================= */
+.password-field {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 22px;
+    opacity: .6;
+    cursor: pointer;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+.forgot {
+    text-align: right;
+    margin-top: 6px;
+}
+
+.forgot a {
+    font-size: 13px;
+    color: #00A6ED;
+    text-decoration: none;
+}
+
+.forgot a:hover {
+    text-decoration: underline;
+}
+
+.switch {
+    text-align: center;
+    margin: 14px 0;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Inter";
+}
+
+.switch a {
+    color: #00A6ED;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch a:hover {
+    text-decoration: underline;
+}
+
+.instant {
+    text-align: center;
+    color: #9A9AA5;
+    margin: 12px 0;
+}
+
+
+/* =========================
+   REMEMBER
+========================= */
+/* =========================
+   REMEMBER ME ALIGNMENT
+========================= */
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* space between box & text */
+    margin: 16px 0;
+    justify-content: flex-start;
+    /* left align */
+}
+
+/* remove default weird spacing */
+.remember input[type="checkbox"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: #F72585;
+    cursor: pointer;
+}
+
+.remember span {
+    font-size: 14px;
+    color: #2E2E2E;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(90deg, #FF6FAE, #FF4D94, #F72585);
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(247, 37, 133, .35);
+    transition: all .25s ease;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.btn-primary:hover {
+    background: #B7104D;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #00A6ED;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #F8AFC2;
+    color: #2E2E2E;
+}
+
+
+/* =========================
+   SOCIAL LOGIN
+========================= */
+.social-login {
+    display: flex;
+    gap: 14px;
+}
+
+.btn-social {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Inter";
+}
+
+.btn-social:hover {
+    background: #FFE3EC;
+    border-color: #FF6FAE;
+}
+
+.btn-social img {
+    width: 18px;
+}
+
+/* ================= AUTH PAGES - TABLET (max-width: 1024px) ================= */
+@media screen and (max-width: 1024px) {
+
+    .auth-container {
+        width: 95%;
+        max-width: 900px;
+    }
+
+    /* FLOATING FORM */
+    .auth-card {
+        right: 40px;
+    }
+
+    /* FORM BOX */
+    .auth-box {
+        max-width: 450px;
+        padding: 30px 25px;
+    }
+
+    .auth-title {
+        font-size: 22px;
+    }
+
+    .auth-box h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .auth-box input {
+        padding: 10px 12px;
+    }
+
+    .btn-primary {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .social-login {
+        gap: 12px;
+    }
+
+    .btn-social {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+/* ================= AUTH PAGES - MOBILE (max-width: 767px) ================= */
+@media screen and (max-width: 767px) {
+
+    .auth-section {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* IMAGE - hidden on mobile to save space */
+    .auth-illustration {
+        display: none;
+    }
+
+    /* FLOATING FORM - no longer floating */
+    .auth-card {
+        position: static;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* FORM BOX */
+    .auth-box {
+        max-width: 100%;
+        width: 100%;
+        padding: 25px 20px;
+        box-shadow: 0px 4px 16px 0px #00000040;
+    }
+
+    .auth-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .auth-box h3 {
+        font-size: 16px;
+        margin-bottom: 18px;
+    }
+
+    .auth-box label {
+        font-size: 13px;
+        margin: 12px 0 4px;
+    }
+
+    .auth-box input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .auth-box input::placeholder {
+        font-size: 13px;
+    }
+
+    /* Password field */
+    .eye {
+        top: 10px;
+        width: 20px;
+    }
+
+    /* Remember me */
+    .remember {
+        margin: 12px 0;
+    }
+
+    .remember input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .remember span {
+        font-size: 13px;
+    }
+
+    /* Forgot link */
+    .forgot a {
+        font-size: 12px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        padding: 10px;
+        font-size: 14px;
+        box-shadow: 0 6px 14px rgba(247, 37, 133, .3);
+    }
+
+    .btn-primary:hover {
+        transform: none;
+    }
+
+    /* Switch text */
+    .switch {
+        font-size: 13px;
+        margin: 12px 0;
+    }
+
+    .instant {
+        font-size: 13px;
+        margin: 10px 0;
+    }
+
+    /* Social login */
+    .social-login {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    .btn-social {
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
+        justify-content: center;
+    }
+
+    .btn-social img {
+        width: 16px;
+    }
+}
+
+/* ================= SMALL MOBILE (optional - for very small screens) ================= */
+@media screen and (max-width: 380px) {
+    .auth-box {
+        padding: 20px 15px;
+    }
+
+    .auth-title {
+        font-size: 18px;
+    }
+
+    .btn-social {
+        font-size: 12px;
+    }
+
+    .btn-social img {
+        width: 14px;
+    }
+}

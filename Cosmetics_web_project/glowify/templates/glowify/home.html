@@ -1,0 +1,528 @@
+{% extends "glowify/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'glowify/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <div class="swiper hero-swiper">
+
+            <div class="swiper-wrapper">
+
+                {% for banner in hero_banners %}
+
+                <div class="swiper-slide hero-slide {% if forloop.counter == 3 %}third-slide{% endif %}">
+
+                    <img src="{{ banner.image.url }}" class="hero-img">
+
+                    {% if forloop.first %}
+                    <div class="flash-tag">
+                        <span>Flash Sale</span>
+                        <b>50 %</b>
+                        <p>Off</p>
+                    </div>
+                    {% endif %}
+
+                    <a href="#" class="hero-btn">
+                        Shop Now
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            <div class="hero-prev"></div>
+            <div class="hero-next"></div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="luxury">
+
+    <div class="luxury-container">
+
+        <h2 class="luxury-title">
+            Where Luxury Meets Skin Science
+        </h2>
+
+        <div class="luxury-row">
+
+            <!-- images -->
+
+            <div class="luxury-images">
+
+                <img src="{% static 'glowify/images/flip-1.jpg' %}" class="lux-img lux-img-1">
+
+                <img src="{% static 'glowify/images/flip-2.webp' %}" class="lux-img lux-img-2">
+
+            </div>
+
+            <!-- text -->
+
+            <div class="luxury-text">
+
+                <p>
+                    At Glowify, we believe oily skin deserves premium care. Our dermatologist-tested formula blends
+                    advanced ingredients with elegant skincare innovation — giving you confidence without compromise.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="ingredients">
+
+    <h2 class="section-title">
+        Powered by Performance Ingredients
+    </h2>
+
+    <div class="ingredients-slider">
+
+        <!-- WAVE -->
+        <div class="ingredients-wave"></div>
+
+        <div class="ingredients-track">
+
+            {% for ingredient in ingredients %}
+
+            <div class="ingredient-card">
+
+                <img src="{{ ingredient.image.url }}">
+
+                <div class="ingredient-overlay">
+                    <h3>{{ ingredient.title }}</h3>
+                    <p>{{ ingredient.description }}</p>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="featured-products">
+
+    <h2 class="section-title">
+        Featured Products
+    </h2>
+
+    <div class="featured-grid">
+
+        {% for product in featured_products %}
+
+        <div class="product-card">
+
+            <img src="{{ product.image.url }}" class="product-img">
+
+            <h4>{{ product.name }}</h4>
+
+            <p class="product-desc">
+                {{ product.short_description }}
+            </p>
+
+            <div class="rating">
+                ⭐ {{ product.rating }} ({{ product.review_count }} Reviews)
+            </div>
+
+            <div class="price">
+                ₹{{ product.price }}
+            </div>
+
+            <div class="product-actions">
+
+                <a href="{% url 'product_detail' product.slug %}">
+                    <button class="btn-cart">Add to cart</button>
+                </a>
+
+                <button class="favorite-btn {% if product.id in wishlisted_ids %}active{% endif %}"
+                    onclick="toggleFavorite(this, {{ product.id }})">
+
+                    <i class="{% if product.id in wishlisted_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section class="categories">
+
+    <h2 class="section-title">Top Categories</h2>
+
+    <div class="category-wrapper">
+
+        <button class="cat-prev">‹</button>
+
+        <div class="category-carousel">
+
+            <div class="category-track">
+
+                {% for category in categories %}
+
+                <div class="category-card">
+
+                    <img src="{{ category.image.url }}">
+
+                    <h4>{{ category.name }}</h4>
+
+                    <a href="{% url 'category_products' category.slug %}">
+                        <button class="shop-btn">Shop Now</button>
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <button class="cat-next">›</button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+<section class="beauty-features">
+
+    <div class="beauty-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="beauty-left">
+
+            <div class="flower-circle">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+
+            <img src="{% static 'glowify/images/girl.png' %}" class="beauty-girl">
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="beauty-right">
+
+            <div class="feature-box">
+                <span class="feature-num">01</span>
+                Clean Beauty Promise
+            </div>
+
+            <div class="feature-box">
+                <span class="feature-num">02</span>
+                Proven Results
+            </div>
+
+            <div class="feature-box">
+                <span class="feature-num">03</span>
+                Expert Formulated
+            </div>
+
+            <div class="feature-box">
+                <span class="feature-num">04</span>
+                Sustainable Beauty
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="testimonials">
+
+    <h2 class="section-title">Happy Customers</h2>
+
+    <div class="testimonial-wrapper">
+
+        <button class="test-prev">‹</button>
+
+        <div class="testimonial-slider">
+
+            <div class="testimonial-track">
+
+                {% for t in testimonials %}
+
+                <div class="testimonial-card">
+
+                    <img src="{{ t.profile_pic.url }}" class="testimonial-avatar">
+
+                    <div class="stars">
+
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= t.rating %} ⭐ {% endif %} {% endfor %} </div>
+
+                            <p class="testimonial-text">
+                                “{{ t.remark }}”
+                            </p>
+
+                            <h4 class="testimonial-name">
+                                - {{ t.name }}, {{ t.place }}
+                            </h4>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <button class="test-next">›</button>
+
+        </div>
+
+</section>
+
+
+<!-- ================= INNER CIRCLE ================= -->
+<section class="inner-circle">
+
+    <div class="inner-content">
+        <h3>Join The Inner Circle</h3>
+        <p>Sign up to receive early access to new launches, exclusive offers and skincare tips.</p>
+
+        <div class="inner-form">
+            <input type="email" placeholder="Enter You Email">
+            <button>Register</button>
+        </div>
+    </div>
+
+    <div class="glow-layer"></div>
+
+</section>
+
+</section>
+
+
+
+
+
+
+
+<section class="promo-banner">
+
+    <div class="promo-circle"></div>
+
+    <!-- Flash Sale Tag -->
+    <div class="flash-tag2">
+        <span>Flash Sale</span>
+        <b>50 %</b>
+        <p>Off</p>
+    </div>
+
+    <!-- Girl -->
+    <img src="{% static 'glowify/images/girl-2.png' %}" class="promo-girl">
+
+    <!-- Nail Polish Products -->
+    <div class="promo-products">
+
+        <img src="{% static 'glowify/images/cosmo.png' %}" class="promo-product">
+
+        <div class="bubbles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- Text -->
+    <div class="promo-content">
+
+        <h2>“Glow Confidently every Day”</h2>
+
+        <a href="" class="promo-btn">
+            Shop Now
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+
+
+    const heroSwiper = new Swiper(".hero-swiper", {
+
+        loop: true,
+
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
+
+        navigation: {
+            nextEl: ".hero-next",
+            prevEl: ".hero-prev"
+        },
+
+        speed: 800
+
+    });
+
+</script>
+<script>
+
+    const boxes = document.querySelectorAll(".feature-box");
+
+    function showFeatureBoxes() {
+
+        boxes.forEach((box, index) => {
+
+            setTimeout(() => {
+
+                box.classList.add("show");
+
+            }, index * 500)
+
+        });
+
+    }
+
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                showFeatureBoxes();
+
+            }
+
+        });
+
+    });
+
+    observer.observe(document.querySelector(".beauty-features"));
+
+</script>
+
+<script>
+    const track = document.querySelector(".category-track");
+
+    const prevBtn = document.querySelector(".cat-prev");
+    const nextBtn = document.querySelector(".cat-next");
+
+    let position = 0;
+
+    const cardWidth = 270; // card width + gap
+
+    nextBtn.addEventListener("click", () => {
+
+        position -= cardWidth;
+
+        track.style.transform = `translateX(${position}px)`;
+
+    });
+
+    prevBtn.addEventListener("click", () => {
+
+        position += cardWidth;
+
+        if (position > 0) {
+            position = 0;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const track = document.querySelector(".testimonial-track");
+        const prev = document.querySelector(".test-prev");
+        const next = document.querySelector(".test-next");
+
+        const cards = document.querySelectorAll(".testimonial-card");
+
+        let index = 0;
+
+        function slideTestimonial() {
+
+            const cardWidth = cards[0].offsetWidth;
+
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+        }
+
+        next.addEventListener("click", function () {
+
+            if (index < cards.length - 1) {
+                index++;
+            } else {
+                index = 0;
+            }
+
+            slideTestimonial();
+
+        });
+
+        prev.addEventListener("click", function () {
+
+            if (index > 0) {
+                index--;
+            } else {
+                index = cards.length - 1;
+            }
+
+            slideTestimonial();
+
+        });
+
+    });
+</script>
+
+{% endblock %}
